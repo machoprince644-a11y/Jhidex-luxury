@@ -211,15 +211,15 @@ function updateProduct(event) {
     
     const productId = parseInt(document.getElementById('editProductId').value);
     const product = products.find(p => p.id === productId);
-    
     if (product) {
-        product.name = document.getElementById('editProductName').value;
-        product.price = parseFloat(document.getElementById('editProductPrice').value);
-        closeEditModal();
-        loadProducts();
-        loadDashboard();
-        showNotification('Product updated successfully!');
-        localStorage.setItem('products', JSON.stringify(products));
+    product.name = document.getElementById('editProductName').value;
+    product.price = parseFloat(document.getElementById('editProductPrice').value;
+
+    localStorage.setItem('products', JSON.stringify(products));
+
+    closeEditModal();
+    loadProducts();
+    loadDashboard();
     }
 }
 
