@@ -15,7 +15,8 @@ const currencySymbols = {
 
 let currentCurrency = 'USD';
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let orders = JSON.parse(localStorage.getItem('orders')) || [];
+ let orders = JSON.parse(localStorage.getItem('orders')) || [];
+let products = JSON.parse(localStorage.getItem('products')) || [];
 
 // Load cart count on page load
 window.addEventListener('DOMContentLoaded', () => {
