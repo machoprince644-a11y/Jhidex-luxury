@@ -11,7 +11,7 @@ function loginAdmin(event) {
         localStorage.setItem('adminLoggedIn', 'true');
         document.getElementById('loginForm').style.display = 'none';
         document.getElementById('adminPanel').style.display = 'flex';
-        loadDashboard();
+        console.log("Login successful");;
     } else {
         const errorDiv = document.getElementById('loginError');
         errorDiv.textContent = 'Invalid password!';
