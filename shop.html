@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Jhidex Luxury</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>JHIDEX LUXURY</h1>
+                <p class="tagline">Premium Men's Fashion</p>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                    <li><a href="categories.html" class="nav-link">Categories</a></li>
+                    <li><a href="new-arrivals.html" class="nav-link">New Arrivals</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="currency-selector">
+                    <select id="currency" onchange="changeCurrency()">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="NGN">NGN (₦)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="admin.html" class="admin-link" title="Admin Panel">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Page Content -->
+    <div class="container shop-container">
+        <h1>Our Collection</h1>
+        
+        <div class="shop-layout">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <h3>Filters</h3>
+                
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <label><input type="checkbox" value="suits" onchange="filterProducts()"> Suits</label>
+                    <label><input type="checkbox" value="shoes" onchange="filterProducts()"> Shoes</label>
+                    <label><input type="checkbox" value="accessories" onchange="filterProducts()"> Accessories</label>
+                    <label><input type="checkbox" value="casual" onchange="filterProducts()"> Casual Wear</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Size</h4>
+                    <label><input type="checkbox" value="XS" onchange="filterProducts()"> XS</label>
+                    <label><input type="checkbox" value="S" onchange="filterProducts()"> S</label>
+                    <label><input type="checkbox" value="M" onchange="filterProducts()"> M</label>
+                    <label><input type="checkbox" value="L" onchange="filterProducts()"> L</label>
+                    <label><input type="checkbox" value="XL" onchange="filterProducts()"> XL</label>
+                    <label><input type="checkbox" value="XXL" onchange="filterProducts()"> XXL</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Color</h4>
+                    <label><input type="checkbox" value="black" onchange="filterProducts()"> Black</label>
+                    <label><input type="checkbox" value="white" onchange="filterProducts()"> White</label>
+                    <label><input type="checkbox" value="navy" onchange="filterProducts()"> Navy</label>
+                    <label><input type="checkbox" value="gray" onchange="filterProducts()"> Gray</label>
+                    <label><input type="checkbox" value="brown" onchange="filterProducts()"> Brown</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <input type="range" id="priceRange" min="0" max="10000" value="10000" onchange="filterProducts()">
+                    <p>Max: $<span id="priceValue">10000</span></p>
+                </div>
+
+                <button onclick="resetFilters()" class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Reset Filters</button>
+            </aside>
+
+            <!-- Products Grid -->
+            <main class="products-section">
+                <div class="products-header">
+                    <p id="productCount">Showing products</p>
+                    <select id="sortBy" onchange="sortProducts()">
+                        <option value="featured">Featured</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+                <div id="productsGrid" class="products-grid">
+                    <!-- Products loaded here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Jhidex Luxury</h4>
+                    <p>Your destination for premium men's fashion and luxury accessories.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTrackingModal()">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        10, Abibu Oki Street, Mandilas<br>
+                        Lagos Island, Lagos, Nigeria
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ibrahimjimoh892@gmail.com">ibrahimjimoh892@gmail.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jhidex Luxury. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content large">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

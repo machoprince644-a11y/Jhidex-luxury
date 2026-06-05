@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Jhidex Luxury</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>JHIDEX LUXURY</h1>
+                <p class="tagline">Premium Men's Fashion</p>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="categories.html" class="nav-link">Categories</a></li>
+                    <li><a href="new-arrivals.html" class="nav-link">New Arrivals</a></li>
+                    <li><a href="about.html" class="nav-link active">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="currency-selector">
+                    <select id="currency" onchange="changeCurrency()">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="NGN">NGN (₦)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="admin.html" class="admin-link" title="Admin Panel">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Us Section -->
+    <div class="container about-container">
+        <div class="about-header">
+            <h1>About Jhidex Luxury</h1>
+            <p>Redefining Premium Men's Fashion Since 2020</p>
+        </div>
+
+        <section class="about-section">
+            <h2>Our Story</h2>
+            <p>
+                Jhidex Luxury was founded with a vision to bring world-class luxury men's fashion to Africa. 
+                We believe that every man deserves access to premium, high-quality clothing that makes him feel confident 
+                and distinguished. Our journey began in Lagos, Nigeria, and has since expanded to serve luxury fashion 
+                enthusiasts across the continent.
+            </p>
+            <p>
+                We carefully curate our collection from the finest designers and brands around the world, ensuring that 
+                every piece meets our exacting standards for quality, craftsmanship, and style.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>
+                To make luxury men's fashion accessible and deliver exceptional customer experiences through 
+                premium products, expert curation, and personalized service.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Quality</h3>
+                    <p>We only stock the finest luxury brands and materials</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Integrity</h3>
+                    <p>Honest pricing and transparent business practices</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in everything we do</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Customer Care</h3>
+                    <p>Your satisfaction is our top priority</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Why Choose Us</h2>
+            <div class="why-choose-list">
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>Premium Selection</h4>
+                        <p>Handpicked luxury brands and designers</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>Expert Curation</h4>
+                        <p>Curated by fashion experts with years of experience</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>Fast Shipping</h4>
+                        <p>Quick and reliable delivery across Nigeria and beyond</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>Easy Returns</h4>
+                        <p>30-day hassle-free return policy</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>24/7 Support</h4>
+                        <p>Dedicated customer service team always ready to help</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h4>Multi-Currency</h4>
+                        <p>Shop in your preferred currency (USD, EUR, NGN, GBP)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section contact-cta">
+            <h2>Get in Touch</h2>
+            <p>Have questions? We'd love to hear from you!</p>
+            <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Jhidex Luxury</h4>
+                    <p>Your destination for premium men's fashion and luxury accessories.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTrackingModal()">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        10, Abibu Oki Street, Mandilas<br>
+                        Lagos Island, Lagos, Nigeria
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ibrahimjimoh892@gmail.com">ibrahimjimoh892@gmail.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jhidex Luxury. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

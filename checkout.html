@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Jhidex Luxury</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>JHIDEX LUXURY</h1>
+                <p class="tagline">Premium Men's Fashion</p>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="categories.html" class="nav-link">Categories</a></li>
+                    <li><a href="new-arrivals.html" class="nav-link">New Arrivals</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="currency-selector">
+                    <select id="currency" onchange="changeCurrency()">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="NGN">NGN (₦)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="admin.html" class="admin-link" title="Admin Panel">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <div class="container checkout-container">
+        <h1>Checkout</h1>
+        
+        <div class="checkout-layout">
+            <div class="checkout-form-section">
+                <div class="checkout-step">
+                    <h2><span class="step-number">1</span> Shipping Information</h2>
+                    <form id="shippingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipcode">ZIP Code *</label>
+                                <input type="text" id="zipcode" name="zipcode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" value="Nigeria" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="checkout-step">
+                    <h2><span class="step-number">2</span> Shipping Method</h2>
+                    <div class="shipping-options">
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="standard" checked>
+                            <div>
+                                <strong>Standard Shipping (5-7 days)</strong>
+                                <p id="shippingPrice1">₦2,000</p>
+                            </div>
+                        </label>
+                        <label class="shipping-option">
+                            <input type="radio" name="shipping" value="express">
+                            <div>
+                                <strong>Express Shipping (2-3 days)</strong>
+                                <p id="shippingPrice2">₦5,000</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkout-step">
+                    <h2><span class="step-number">3</span> Payment Method</h2>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked>
+                            <span><i class="fas fa-credit-card"></i> Credit/Debit Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="transfer">
+                            <span><i class="fas fa-university"></i> Bank Transfer</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="ussd">
+                            <span><i class="fas fa-mobile-alt"></i> USSD</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button onclick="completeOrder()" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 15px;">Place Order</button>
+            </div>
+
+            <aside class="checkout-summary">
+                <h2>Order Summary</h2>
+                <div id="checkoutItems"></div>
+                <div class="summary-divider"></div>
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="subtotal" class="currency">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping:</span>
+                    <span id="shipping" class="currency">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax (10%):</span>
+                    <span id="tax" class="currency">$0.00</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total:</span>
+                    <span id="total" class="currency">$0.00</span>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h2>Order Placed Successfully!</h2>
+                <p>Your order has been received and is being processed.</p>
+                <p id="orderNumber"></p>
+                <p>You will receive a confirmation email shortly.</p>
+                <a href="order-tracking.html" class="btn btn-primary">Track Your Order</a>
+                <a href="shop.html" class="btn btn-secondary">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Jhidex Luxury</h4>
+                    <p>Your destination for premium men's fashion and luxury accessories.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTrackingModal()">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        10, Abibu Oki Street, Mandilas<br>
+                        Lagos Island, Lagos, Nigeria
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ibrahimjimoh892@gmail.com">ibrahimjimoh892@gmail.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jhidex Luxury. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

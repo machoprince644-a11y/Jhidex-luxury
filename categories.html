@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Jhidex Luxury</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>JHIDEX LUXURY</h1>
+                <p class="tagline">Premium Men's Fashion</p>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="categories.html" class="nav-link active">Categories</a></li>
+                    <li><a href="new-arrivals.html" class="nav-link">New Arrivals</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="currency-selector">
+                    <select id="currency" onchange="changeCurrency()">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="NGN">NGN (₦)</option>
+                        <option value="GBP">GBP (£)</option>
+                    </select>
+                </div>
+                <a href="cart.html" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="admin.html" class="admin-link" title="Admin Panel">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Section -->
+    <div class="container">
+        <h1>Shop by Category</h1>
+        
+        <div class="categories-detailed">
+            <!-- Suits Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h2>Suits</h2>
+                    <p>Premium tailored suits for every occasion</p>
+                </div>
+                <div id="suitsCategory" class="products-grid">
+                    <!-- Products loaded here -->
+                </div>
+            </div>
+
+            <!-- Shoes Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h2>Shoes</h2>
+                    <p>Luxury footwear collection</p>
+                </div>
+                <div id="shoesCategory" class="products-grid">
+                    <!-- Products loaded here -->
+                </div>
+            </div>
+
+            <!-- Accessories Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h2>Accessories</h2>
+                    <p>Complete your look with our luxury accessories</p>
+                </div>
+                <div id="accessoriesCategory" class="products-grid">
+                    <!-- Products loaded here -->
+                </div>
+            </div>
+
+            <!-- Casual Wear Category -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h2>Casual Wear</h2>
+                    <p>Comfortable yet stylish casual collection</p>
+                </div>
+                <div id="casualCategory" class="products-grid">
+                    <!-- Products loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Jhidex Luxury</h4>
+                    <p>Your destination for premium men's fashion and luxury accessories.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" onclick="showTrackingModal()">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        10, Abibu Oki Street, Mandilas<br>
+                        Lagos Island, Lagos, Nigeria
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ibrahimjimoh892@gmail.com">ibrahimjimoh892@gmail.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jhidex Luxury. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content large">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
