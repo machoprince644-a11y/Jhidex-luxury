@@ -1,6 +1,6 @@
 // Admin Panel Functionality
 const ADMIN_PASSWORD = 'jhidex123';
-let isAdminLoggedIn = false;
+let isAdminLoggedIn = true;
 
 function loginAdmin(event) {
     event.preventDefault();
