@@ -183,7 +183,8 @@ function addProduct(event) {
         colors: colors.length > 0 ? colors : ['Default']
     };
     
-    products.push(newProduct);
+    ;products.push(newProduct);
+localStorage.setItem('products', JSON.stringify(products));
     hideAddProductForm();
     loadProducts();
     loadDashboard();
@@ -192,6 +193,7 @@ function addProduct(event) {
     document.getElementById('addProductForm').reset();
     showNotification('Product added successfully!');
 }
+
 
 function editProduct(productId) {
     const product = products.find(p => p.id === productId);
