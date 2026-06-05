@@ -229,6 +229,9 @@ function closeEditModal() {
 function deleteProduct(productId) {
     if (confirm('Are you sure you want to delete this product?')) {
         products = products.filter(p => p.id !== productId);
+
+        localStorage.setItem('products', JSON.stringify(products));
+
         loadProducts();
         loadDashboard();
         showNotification('Product deleted successfully!');
