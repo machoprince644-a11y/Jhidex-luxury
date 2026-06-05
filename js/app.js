@@ -13,7 +13,7 @@ const currencySymbols = {
     GBP: '£'
 };
 
-let currentCurrency = 'USD';
+let currentCurrency = 'NGN';
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
  let orders = JSON.parse(localStorage.getItem('orders')) || [];
 let products = JSON.parse(localStorage.getItem('products')) || [];
