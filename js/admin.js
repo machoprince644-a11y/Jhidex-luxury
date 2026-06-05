@@ -219,6 +219,7 @@ function updateProduct(event) {
         loadProducts();
         loadDashboard();
         showNotification('Product updated successfully!');
+        localStorage.setItem('products', JSON.stringify(products));
     }
 }
 
