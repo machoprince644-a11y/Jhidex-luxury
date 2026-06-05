@@ -687,6 +687,33 @@ body {
     display: flex;
     gap: 20px;
     align-items: start;
+    transition: all 0.3s;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.cart-item.completed {
+    background: #f5f5f5;
+}
+
+.cart-item.completed .cart-item-name {
+    text-decoration: line-through;
+    color: #999;
 }
 
 .cart-item-image {
@@ -701,8 +728,8 @@ body {
 }
 
 .cart-item-name {
-    font-size: 18px;
-    font-weight: 600;
+    color: #333;
+    font-size: 16px;
     margin-bottom: 5px;
 }
 
@@ -1315,26 +1342,6 @@ table tr:hover {
     margin-bottom: 40px;
 }
 
-.search-box {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 500px;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 12px 20px;
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    color: var(--text-color);
-}
-
-.search-box button {
-    padding: 12px 30px;
-}
-
 .success-message {
     text-align: center;
     padding: 40px;
@@ -1364,4 +1371,51 @@ table tr:hover {
 
 .success-message .btn {
     margin: 5px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--secondary-bg);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .nav-link {
+        padding: 12px 20px;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        border-bottom: none;
+        border-left-color: var(--primary-color);
+    }
+
+    .hamburger {
+        display: flex;
+    }
 }
