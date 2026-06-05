@@ -97,7 +97,7 @@ function loadDashboard() {
 }
 
 function loadProducts() {
-    const tbody = document.getElementById('productsTableBody');
+    const tbody = event.target.reset();
     if (tbody) {
         tbody.innerHTML = products.map(product => `
             <tr>
